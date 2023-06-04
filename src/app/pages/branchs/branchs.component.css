@@ -1,0 +1,25 @@
+section {
+  width: 50%;
+}
+
+.main {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  width: 90vw;
+  padding: 20px;
+  position: relative;
+  margin: 0px auto;
+}
+
+.details {
+  padding: 20px;
+  position: relative;
+}
+
+app-user-details {
+  position: sticky;
+  top: 20px;
+  left: 0;
+  right: 0;
+}

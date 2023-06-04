@@ -1,0 +1,37 @@
+input{
+    all: unset;
+    border: 2px solid rgba(0, 0, 0, 0);
+    padding: 3px;
+    border-radius: 5px;
+    font-weight: 200;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 18px;
+    transition: .4s;
+}
+
+.edit input{
+    border-color: gray;
+    color: gray;
+}
+
+.icon{
+    width: 20px;
+    height: 20px;
+    object-fit: cover;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    cursor: pointer;
+}
+
+.close_edit_icon, .edit_icon{
+    transition: .2s;
+}
+
+.close_edit_icon:hover, .edit_icon:hover{
+    scale: 1.1;
+}
+
+.erros_message{
+    color: red;
+}

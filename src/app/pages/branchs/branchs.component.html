@@ -1,0 +1,13 @@
+<div class="main">
+  <section *ngIf="branchsWithUsers$ | async">
+    <app-branch
+      *ngFor="let branch of branchs; let branchIndex = index; trackBy: trackByFn"
+      [branch]="branch"
+      [branchIndex]="branchIndex"
+      (onUserChoose)="chooseUser($event)"
+    ></app-branch>
+  </section>
+  <section class="details">
+    <app-user-details *ngIf="chusedUser?.isSelected" [user]="chusedUser" [branchs]="branchs"></app-user-details>
+  </section>
+</div>

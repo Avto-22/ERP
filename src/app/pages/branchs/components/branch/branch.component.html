@@ -1,0 +1,30 @@
+<div class="main"></div>
+<div class="accordion" id="accordionPanelsStayOpenExample">
+  <div class="accordion-item" style="position: relative;">
+    <h2 class="accordion-header" [id]="'panelsStayOpen-headingOne'+branchIndex">
+      <button
+        class="accordion-button collapsed"
+        type="button"
+        data-bs-toggle="collapse"
+        [attr.data-bs-target]="'#panelsStayOpen-collapseOne'+branchIndex"
+        aria-expanded="true"
+        aria-controls="panelsStayOpen-collapseOne"
+        (click)="setBranchOpenStatus()"
+      >
+        {{'Filiale: '+ branch.ansichtName + ' Nr_'+branch.filialNr}}
+      </button>
+    </h2>
+    <div
+      *ngFor="let user of branch.users; let i = index; trackBy: trackByFn"
+      [id]="'panelsStayOpen-collapseOne'+branchIndex"
+      class="accordion-collapse collapse"
+      [ngClass]="{show: isBranchOpen}"
+      [attr.aria-labelledby]="'panelsStayOpen-headingOne'+branchIndex"
+      (click)="chooseUser(user, i, branchIndex)"
+    >
+      <div class="accordion-body">
+        <app-user [isChoosed]="user.isSelected" [user]="user"></app-user>
+      </div>
+    </div>
+  </div>
+</div>

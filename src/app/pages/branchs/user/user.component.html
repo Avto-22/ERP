@@ -1,0 +1,15 @@
+<div
+  class="card border-secondary mb-3 user_card"
+  style="cursor: pointer"
+  [ngClass]="{ isActive: isChoosed }"
+>
+  <div class="card-header">
+    <p>{{ "User: " + user.ansichtNam }}</p>
+  </div>
+  <div class="card-body text-primary">
+    <h5 class="card-title">{{ "Bundesland: " + user.bundesLand }}</h5>
+    <p class="card-text">
+      {{'FilialNummer: '+user.filialNr}}
+    </p>
+  </div>
+</div>

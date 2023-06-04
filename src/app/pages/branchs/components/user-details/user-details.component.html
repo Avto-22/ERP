@@ -1,0 +1,58 @@
+<form
+  class="main"
+  [formGroup]="userDetailsForm"
+  (ngSubmit)="save()"
+  [ngClass]="{ edit: editForm }"
+>
+  <div class="card border-secondary mb-3" style="cursor: pointer">
+    <div class="card-header">
+      <p>
+        {{ "User: " }}
+        <input
+          type="text"
+          [value]="user.ansichtNam"
+          [readonly]="!editForm"
+          formControlName="ansichtNam"
+        />
+      </p>
+      <img
+        *ngIf="!editForm"
+        class="icon edit_icon"
+        src="assets/images/edit_icon.png"
+        alt=""
+        (click)="editForm = true"
+      />
+      <img
+        *ngIf="editForm"
+        class="icon close_edit_icon"
+        src="assets/images/close.png"
+        alt=""
+        (click)="closeEdit()"
+      />
+    </div>
+    <div class="card-body text-primary">
+      <h5 class="card-title">
+        {{ "Bundesland: " }}
+        <input
+          type="text"
+          [value]="user.bundesLand"
+          [readonly]="!editForm"
+          formControlName="bundesLand"
+        />
+      </h5>
+      <p class="card-text">
+        {{ "FilialNummer: " }}
+        <input
+          type="number"
+          [value]="user.filialNr"
+          [readonly]="!editForm"
+          formControlName="filialNr"
+        />
+      </p>
+      <p class="erros_message" *ngIf="isBranchNummerIncorrect">falsche FilialNr</p>
+    </div>
+  </div>
+  <button *ngIf="editForm" class="btn btn-success" type="submit">
+    speichern
+  </button>
+</form>
